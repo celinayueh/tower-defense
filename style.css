@@ -229,8 +229,8 @@ h2.title{
     color: darkslategrey;
 }
 
-h2.green {
-    color: var(--green);
+h2.red {
+    color: red;
 }
 
 h2.blue {

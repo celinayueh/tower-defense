@@ -99,54 +99,49 @@ function calculateScores(inputRef) {
     let score1 = 0;
     let score2 = 0;
 
-    const partial1 = parseInt(document.getElementById("partial-tnt-t1").value) || 0;
-    const full1 = parseInt(document.getElementById("full-tnt-t1").value) || 0;
-    const doubler1 = document.getElementById("doubler-t1").checked ? 1 : 0;
-    const unstacked1 = parseInt(document.getElementById("unstacked-t1").value) || 0;
-    const twoStack1 = parseInt(document.getElementById("2-stack-t1").value) || 0;
-    const threeStack1 = parseInt(document.getElementById("3-stack-t1").value) || 0;
-    const endgame1 = (document.getElementById("endgame-t1").value) || 0;
+    const shiftedTowers1 = parseInt(document.getElementById("shifted-towers-t1").value) || 0;
+    const purple1 = parseInt(document.getElementById("purple-t1").value) || 0;
+    const orange1 = parseInt(document.getElementById("orange-t1").value) || 0;
+    const teal1 = parseInt(document.getElementById("teal-t1").value) || 0;
+    const fullTower1 = parseInt(document.getElementById("full-tower-t1").value) || 0;
+    const partialTower1 = (document.getElementById("partial-tower-t1").value) || 0;
+    const singleTower1 = (document.getElementById("single-tower-t1").value) || 0;
 
-    const partial2 = parseInt(document.getElementById("partial-tnt-t2").value) || 0;
-    const full2 = parseInt(document.getElementById("full-tnt-t2").value) || 0;
-    const doubler2 = document.getElementById("doubler-t2").checked ? 1 : 0;
-    const unstacked2 = parseInt(document.getElementById("unstacked-t2").value) || 0;
-    const twoStack2 = parseInt(document.getElementById("2-stack-t2").value) || 0;
-    const threeStack2 = parseInt(document.getElementById("3-stack-t2").value) || 0;
-    const endgame2 = (document.getElementById("endgame-t2").value) || 0;
+    const shiftedTowers2 = parseInt(document.getElementById("shifted-towers-t2").value) || 0;
+    const purple2 = parseInt(document.getElementById("purple-t2").value) || 0;
+    const orange2 = parseInt(document.getElementById("orange-t2").value) || 0;
+    const teal2 = parseInt(document.getElementById("teal-t2").value) || 0;
+    const fullTower2 = parseInt(document.getElementById("full-tower-t2").value) || 0;
+    const partialTower2 = (document.getElementById("partial-tower-t2").value) || 0;
+    const singleTower2 = (document.getElementById("single-tower-t2").value) || 0;
 
-    const scoreKey = [1, 2, 1, 1, 2, 3, 5];
+    const scoreKey = [1, 5, 6, 9, 5, 3, 2];
 
     let matchData1 = [
-        partial1,
-        full1,
-        doubler1,
-        unstacked1,
-        twoStack1,
-        threeStack1,
-        endgame1
+        shiftedTowers1,
+        purple1,
+        orange1,
+        teal1,
+        fullTower1,
+        partialTower1,
+        singleTower1
     ];
 
     let matchData2 = [
-        partial2,
-        full2,
-        doubler2,
-        unstacked2,
-        twoStack2,
-        threeStack2,
-        endgame2
+        shiftedTowers2,
+        purple2,
+        orange2,
+        teal2,
+        fullTower2,
+        partialTower2,
+        singleTower2
     ];
-
+    
     for (let i = 0; i < scoreKey.length; i++) {
-        if (i === 2) { // Handle doubler
-            score1 = score1 * (doubler1 + 1);
-            score2 = score2 * (doubler2 + 1);
-        } else {
             score1 += matchData1[i] * scoreKey[i];
             score2 += matchData2[i] * scoreKey[i];
-        }
-    }
 
+    }
     document.getElementById("score-t1").style.color = "black";
     document.getElementById("score-t1").innerHTML = "Score: " + score1.toString();
 
@@ -155,21 +150,21 @@ function calculateScores(inputRef) {
 }
 
 function clearFields() {
-    document.getElementById("partial-tnt-t1").value = "";
-    document.getElementById("full-tnt-t1").value = "";
-    document.getElementById("doubler-t1").checked = false;
-    document.getElementById("unstacked-t1").value = "";
-    document.getElementById("2-stack-t1").value = "";
-    document.getElementById("3-stack-t1").value = "";
-    document.getElementById("endgame-t1").checked = false;
+    document.getElementById("shifted-towers-t1").value = "";
+    document.getElementById("purple-t1").value = "";
+    document.getElementById("orange-t1").value = "";
+    document.getElementById("teal-t1").value = "";
+    document.getElementById("full-tower-t1").value = "";
+    document.getElementById("partial-tower-t1").value = "";
+    document.getElementById("single-tower-t1").value = "";
 
-    document.getElementById("partial-tnt-t2").value = "";
-    document.getElementById("full-tnt-t2").value = "";
-    document.getElementById("doubler-t2").checked = false;
-    document.getElementById("unstacked-t2").value = "";
-    document.getElementById("2-stack-t2").value = "";
-    document.getElementById("3-stack-t2").value = "";
-    document.getElementById("endgame-t2").checked = false;
+    document.getElementById("shifted-towers-t2").value = "";
+    document.getElementById("purple-t2").value = "";
+    document.getElementById("orange-t2").value = "";
+    document.getElementById("teal-t2").value = "";
+    document.getElementById("full-tower-t2").value = "";
+    document.getElementById("partial-tower-t2").value = "";
+    document.getElementById("single-tower-t2").value = "";
 
     calculateScores();
 }
@@ -190,21 +185,21 @@ window.addEventListener("DOMContentLoaded", function () {
     const timerText = this.document.getElementById("timerText");
 
     // score variables
-    const partial1 = document.getElementById("partial-tnt-t1");
-    const full1 = document.getElementById("full-tnt-t1");
-    const doubler1 = document.getElementById("doubler-t1");
-    const unstacked1 = document.getElementById("unstacked-t1");
-    const twoStack1 = document.getElementById("2-stack-t1");
-    const threeStack1 = document.getElementById("3-stack-t1");
-    const endgame1 = document.getElementById("endgame-t1");
+    const shiftedTowers1 = document.getElementById("shifted-towers-t1");
+    const purple1 = document.getElementById("purple-t1");
+    const orange1 = document.getElementById("orange-t1");
+    const teal1 = document.getElementById("teal-t1");
+    const fullTower1 = document.getElementById("full-tower-t1");
+    const partialTower1 = document.getElementById("partial-tower-t1");
+    const singleTower1 = document.getElementById("single-tower-t1");
 
-    const partial2 = document.getElementById("partial-tnt-t2");
-    const full2 = document.getElementById("full-tnt-t2");
-    const doubler2 = document.getElementById("doubler-t2");
-    const unstacked2 = document.getElementById("unstacked-t2");
-    const twoStack2 = document.getElementById("2-stack-t2");
-    const threeStack2 = document.getElementById("3-stack-t2");
-    const endgame2 = document.getElementById("endgame-t2");
+    const shiftedTowers2 = document.getElementById("shifted-towers-t2");
+    const purple2 = document.getElementById("purple-t2");
+    const orange2 = document.getElementById("orange-t2");
+    const teal2 = document.getElementById("teal-t2");
+    const fullTower2 = document.getElementById("full-tower-t2");
+    const partialTower2 = document.getElementById("partial-tower-t2");
+    const singleTower2 = document.getElementById("single-tower-t2");
 
     const clearBtn = document.getElementById("clearBtn");
     const timerSwitch = document.getElementById("timerSwitch");
@@ -218,20 +213,20 @@ window.addEventListener("DOMContentLoaded", function () {
         scoreSwitch.addEventListener("click", showScore);
         // score events
         const elements = [
-            { elem: partial1, type: '' },
-            { elem: full1, type: '' },
-            { elem: doubler1, type: 'checkbox' },
-            { elem: unstacked1, type: '' },
-            { elem: twoStack1, type: '' },
-            { elem: threeStack1, type: '' },
-            { elem: endgame1, type: 'checkbox' },
-            { elem: partial2, type: '' },
-            { elem: full2, type: '' },
-            { elem: doubler2, type: 'checkbox' },
-            { elem: unstacked2, type: '' },
-            { elem: twoStack2, type: '' },
-            { elem: threeStack2, type: '' },
-            { elem: endgame2, type: 'checkbox' },
+            { elem: shiftedTowers1, type: '' },
+            { elem: purple1, type: '' },
+            { elem: orange1, type: '' },
+            { elem: teal1, type: '' },
+            { elem: fullTower1, type: '' },
+            { elem: partialTower1, type: '' },
+            { elem: singleTower1, type: '' },
+            { elem: shiftedTowers2, type: '' },
+            { elem: purple2, type: '' },
+            { elem: orange2, type: '' },
+            { elem: teal2, type: '' },
+            { elem: fullTower2, type: '' },
+            { elem: partialTower2, type: '' },
+            { elem: singleTower2, type: '' },
         ];
 
         elements.forEach(item => {
